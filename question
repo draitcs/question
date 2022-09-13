@@ -1,0 +1,58 @@
+#include<iostream> 
+#include<fstream> 
+#include<stdlib.h> 
+using namespace std; 
+int main() 
+{ 
+ofstream outfile;
+outfile.open("Questions"); 
+if(!outfile) 
+{ 
+cout<<"File could not be opened \n"; 
+exit(1); 
+}
+outfile<<"Who is the founder of TESLA ? \n"; 
+outfile<<"Who are the winners of 2007 IPL ? \n"; 
+outfile<<"Who is prime minister of INDIA ? \n"; 
+outfile.close(); 
+outfile.open("Answers"); 
+if(!outfile) 
+{ 
+cout<<"File could not be opened \n"; 
+exit(1); 
+}
+outfile<<"Elon Musk \n"; 
+outfile<<"Rajasthan Royals \n"; 
+outfile<<"Narendra Modi \n"; 
+outfile.close(); 
+char q[80],ans[40]; 
+ifstream infile; 
+infile.open("Questions");
+if(!infile) 
+{ 
+cout<<"File could not be opened \n"; 
+exit(1); 
+}
+cout<<"******Sample Questions****** \n"; 
+while(infile.eof()==0)
+{infile.getline(q,80);
+cout<<q<<endl; 
+}
+infile.close(); 
+infile.open("Answers"); 
+if(!infile) 
+{ 
+cout<<"File could not be opened \n"; 
+exit(1); 
+}
+cout<<"******ANSWER****** \n"; 
+while(infile.eof()==0)
+{ 
+infile.getline(ans,40);
+cout<<ans<<endl; 
+}
+infile.close(); 
+return 0; 
+}
+
+   
